@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.braindumprelief.flex.framework</groupId>
+    <artifactId>mvp-framework</artifactId>
+    <version>1.0</version>
+    <packaging>swc</packaging>
+
+    <name>Model-View-Presenter Framework</name>
+
+    <parent>
+        <groupId>com.braindumprelief.flex</groupId>
+        <artifactId>flex-super-swc-parent</artifactId>
+        <version>1.2-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.as3commons</groupId>
+            <artifactId>as3commons-collections</artifactId>
+            <version>1.3.2</version>
+            <type>swc</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.adobe.flex.framework</groupId>
+                    <artifactId>playerglobal</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.adobe.flex.framework</groupId>
+                    <artifactId>common-framework</artifactId>
+                </exclusion>
+            </exclusions>
+            <scope>internal</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.flexmojos</groupId>
+                <artifactId>flexmojos-maven-plugin</artifactId>
+                <version>${flexmojos.version}</version>
+                <extensions>true</extensions>
+                <inherited>true</inherited>
+
+                <executions>
+                    <execution>
+                        <id>generate-asdoc</id>
+                        <phase>site-deploy</phase>
+                        <goals>
+                            <goal>asdoc</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/asdoc</outputDirectory>
+                            <sourcePaths>
+                                <path>${project.build.sourceDirectory}</path>
+                            </sourcePaths>
+                        </configuration>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <testTimeout>60000</testTimeout>
+                    <strict>true</strict>
+                    <lenient>true</lenient>
+                    <reduce>true</reduce>
+
+                    <docSources>
+                        <docSource>${project.build.sourceDirectory}/com/braindumprelief/framework</docSource>
+                    </docSources>
+
+                    <rslUrls>
+                        <url>resources/rsl/{artifactId}-{classifier}-{version}.{extension}</url>
+                    </rslUrls>
+
+                    <namespaces>
+                        <namespace>
+                            <uri>library://ns.braindumprelief.com/framework/mvp</uri>
+                            <manifest>${project.build.sourceDirectory}/manifest.xml</manifest>
+                        </namespace>
+                    </namespaces>
+                </configuration>
+
+            </plugin>
+        </plugins>
+    </build>
+</project>

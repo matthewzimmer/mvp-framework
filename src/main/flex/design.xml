@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<design>
+	<namespaces>
+		<namespace prefix="mvp" uri="library://ns.braindumprelief.com/framework/mvp" />
+	</namespaces>
+	
+	<categories>
+		<category id="viewPresenters" label="MVP Presenters" defaultExpand="false" />
+	</categories>
+	
+	<components>
+		
+		<component name="ViewPresenter" namespace="mvp" category="viewPresenters" displayName="View Presenter" />
+		<component name="SkinnableViewPresenter" namespace="mvp" category="viewPresenters" displayName="Skinnable View Presenter" />
+		
+	</components>
+</design>

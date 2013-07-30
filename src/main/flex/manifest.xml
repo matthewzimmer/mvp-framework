@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<componentPackage>
+    
+    <component id="Controller" class="com.braindumprelief.framework.controller.Controller"/>
+    
+    <component id="Presenter" class="com.braindumprelief.framework.mvp.presenter.Presenter"/>
+    <component id="ViewPresenter" class="com.braindumprelief.framework.mvp.presenter.ViewPresenter"/>
+    <component id="SkinnableViewPresenter" class="com.braindumprelief.framework.mvp.presenter.SkinnableViewPresenter"/>
+    
+</componentPackage>
